@@ -16,7 +16,7 @@ class AppleBasket:
         self.apple_quantity = n
 
     def increase(self):
-        return self.apple_quantity + 1
+        self.apple_quantity += 1
 
     def __str__(self):
         return f"A basket of {self.apple_quantity} {self.apple_color} apples."
@@ -29,11 +29,9 @@ assert str(b1) == "A basket of 4 red apples."
 class BankAccount:
     def __init__(self, name, i):
         self.__name = name
-        self.__amt = i
+        self.__atm = i
 
     def __str__(self):
         return f"Your account, {self.__name}, has {self.__atm} dollars."
 
 t1 = BankAccount('Bob', 100)
-
-
