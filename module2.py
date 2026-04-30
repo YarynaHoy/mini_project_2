@@ -9,3 +9,18 @@ class Bike:
 testOne = Bike('blue', 89.99)
 testTwo = Bike('purple', 25.0)
 
+# 2
+class AppleBasket:
+    def __init__(self,s ,n):
+        self.apple_color = s
+        self.apple_quantity = n
+
+    def increase(self):
+        return self.apple_quantity + 1
+
+    def __str__(self):
+        return f"A basket of {self.apple_quantity} {self.apple_color} apples."
+
+
+b1 = AppleBasket('red', 4)
+assert str(b1) == "A basket of 4 red apples."
