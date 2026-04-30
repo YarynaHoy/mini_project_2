@@ -24,3 +24,16 @@ class AppleBasket:
 
 b1 = AppleBasket('red', 4)
 assert str(b1) == "A basket of 4 red apples."
+
+# 3
+class BankAccount:
+    def __init__(self, name, i):
+        self.__name = name
+        self.__amt = i
+
+    def __str__(self):
+        return f"Your account, {self.__name}, has {self.__atm} dollars."
+
+t1 = BankAccount('Bob', 100)
+
+
