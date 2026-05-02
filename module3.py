@@ -76,3 +76,45 @@ class Grass_Pokemon(Pokemon):
 p1 = Grass_Pokemon('Belle')
 assert p1.action() == "Belle knows a lot of different moves!"
 
+# 2
+
+class Grass_Pokemon(Pokemon):
+    attack  = 15 # base levels for grass pokemon
+    defense = 14
+    health  = 12
+    p_type  = "Grass"
+
+    attack_boost  = 2 # when we "train", how much to increment by
+    defense_boost = 3
+    health_boost  = 6
+
+    evolution_threshold = 12 # How many times we need to train before we "evolve"
+    def __init__(self,name, level = 5):
+        super().__init__(name, level)
+
+
+    def moves(self):
+        self.p_moves = ["razor leaf", "synthesis", "petal dance"]
+
+    def action(self):
+        return f"{self.name} knows a lot of different moves!"
+
+    def attack_str(self):
+        if self.level >= 10:
+            Grass_Pokemon.attack += Grass_Pokemon.attack_boost
+
+p1 = Grass_Pokemon('Belle')
+assert p1.action() == "Belle knows a lot of different moves!"
+
+p2 = Grass_Pokemon('Bulby')
+p3 = Grass_Pokemon('Pika')
+
+for _ in range(10):
+    p3.train()
+
+assert isinstance(p2, Grass_Pokemon), "p2 is not the correct type"
+assert isinstance(p3, Grass_Pokemon), "p3 is not the correct type"
+
+assert p2.__str__() == "Pokemon name: Bulby, Type: Grass, Level: 5", "p2 does not have the correct value"
+assert p3.level >= 10, "p3 does not have the correct level; only train to level 10"
+assert p3.attack_up() >= 17, "p3 does not have the correct attack value at level 10"
