@@ -118,3 +118,17 @@ assert isinstance(p3, Grass_Pokemon), "p3 is not the correct type"
 assert p2.__str__() == "Pokemon name: Bulby, Type: Grass, Level: 5", "p2 does not have the correct value"
 assert p3.level >= 10, "p3 does not have the correct level; only train to level 10"
 assert p3.attack_up() >= 17, "p3 does not have the correct attack value at level 10"
+
+# 3
+import time
+import functools
+
+def performance(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = f(*args, **kwargs)
+        end_time = time.perf_counter()
+        elapsed_time = end_time - start_time
+        return result, elapsed_time
+    return wrapper
